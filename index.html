@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphQL Subscription Tester</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .flex-container {
+            height: calc(100vh - 4rem); /* Adjust based on your header/footer height */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6 max-w-6xl bg-white shadow-lg rounded-lg flex flex-col h-screen">
+        <h1 class="text-2xl font-bold mb-6 text-center">GraphQL Subscription Tester</h1>
+
+        <div class="mb-6">
+            <label for="graphqlUrl" class="block text-sm font-medium text-gray-700">GraphQL Endpoint URL</label>
+            <input type="text" id="graphqlUrl" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="ws://your-graphql-endpoint" />
+        </div>
+        
+        <div class="mb-6">
+            <label for="accessKey" class="block text-sm font-medium text-gray-700">Access Key</label>
+            <input type="text" id="accessKey" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Your access key" />
+        </div>
+
+        <div class="flex flex-1 space-x-6 mb-6">
+            <!-- Subscription Query Column -->
+            <div class="flex-1 flex flex-col">
+                <label for="subscriptionQuery" class="block text-sm font-medium text-gray-700">Subscription Query</label>
+                <textarea id="subscriptionQuery" class="mt-1 block w-full h-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none" placeholder="Enter your GraphQL subscription query here..."></textarea>
+            </div>
+            
+            <!-- Subscription Output Column -->
+            <div class="flex-1 flex flex-col">
+                <label for="subscriptionOutput" class="block text-sm font-medium text-gray-700">Subscription Output</label>
+                <div id="subscriptionOutput" class="mt-1 p-4 border border-gray-300 rounded-md bg-gray-50 h-full overflow-y-auto">
+                    <!-- Subscription output will appear here -->
+                </div>
+            </div>
+        </div>
+        
+        <button id="subscribeButton" class="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Subscribe</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
